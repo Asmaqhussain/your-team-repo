@@ -1,1 +1,3 @@
-FR,Tactic/Pattern,Impacted Components,Interface Notes,Verification (Test ID),Evidence Plan (path),Owner,Due
+NFR,Tactic/Pattern,Impacted Components,Interface Notes,Verification (Test ID),Evidence Plan (path),Owner,Due
+p95<200ms@200RPS,Cache + pagination,API,GET /v1/rsvp returns cursor,T-PERF-01,evidence/EV-perf-rsvp.html,Team X,2025-12-05
+
