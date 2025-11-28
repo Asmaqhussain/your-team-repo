@@ -9,7 +9,7 @@
 
 ## Verification
 - [Test script](./tests/T-PERF-01.js)
-- [Evidence artifact](../evidence/EV-perf-rsvp.html)
+- [Evidence artifact](../evidence/EV-perf-rsvp.json)
 
 ## Review notes
 - [Team notes](./review_notes/TEAM_X.md)
