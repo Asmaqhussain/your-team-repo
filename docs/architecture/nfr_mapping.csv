@@ -1,0 +1,4 @@
+NFR,Tactic/Pattern,Impacted Components,Interface Notes,Verification (Test ID),Evidence Plan (path),Owner,Due
+p95<200ms@200RPS,Cache + pagination,API,GET /v1/rsvp returns cursor,T-PERF-01,evidence/EV-perf-rsvp.json,Faz1er,2025-12-05
+99.5% monthly uptime,Retries + circuit breaker,API Gateway,POST /v1/rsvp idempotent via key; retry 5xx/429,T-AV-01,evidence/EV-uptime.pdf,Ops,2025-12-05
+MFA + rate limit,Throttle login attempts,Auth Service,POST /login throttle ≥5/min; 401/429 model,T-SEC-01,evidence/EV-zap-staging.html,Security,2025-12-05

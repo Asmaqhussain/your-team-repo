@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: RSVP API
+  version: 1.0.0
+paths:
+  /v1/rsvp:
+    get:
+      summary: List RSVPs (cursor pagination)
+      parameters:
+        - in: query
+          name: cursor
+          schema: { type: string }
+        - in: query
+          name: limit
+          schema: { type: integer, maximum: 100, default: 50 }
+      responses:
+        '200': { description: OK }
+        '429': { description: Rate limited (retryable) }
+      x-slo:
+        p95_ms: 200
+    post:
+      summary: Create RSVP (idempotent)
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RsvpCreate'
+      responses:
+        '201': { description: Created }
+        '400': { description: Bad request }
+        '401': { description: Unauthorized }
+        '429': { description: Rate limited (retryable) }
+      x-timeouts:
+        client_ms: 3000
+      x-retries:
+        policy: exponential-jitter
+        maxAttempts: 3
+  /login:
+    post:
+      summary: User login with MFA
+      responses:
+        '200': { description: OK }
+        '401': { description: Unauthorized }
+        '429': { description: Too many attempts }
+components:
+  schemas:
+    RsvpCreate:
+      type: object
+      required: [eventId, userId]
+      properties:
+        eventId: { type: string }
+        userId: { type: string }
+        note: { type: string }
+    Error:
+      type: object
+      properties:
+        code: { type: string }
+        message: { type: string }
+        retryable: { type: boolean }
+        correlationId: { type: string }
