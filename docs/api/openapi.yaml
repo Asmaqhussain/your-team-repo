@@ -1,0 +1,28 @@
+
+openapi: 3.0.3
+info:
+  title: Team API
+  version: 1.0.0
+paths:
+  /v1/rsvps:
+    get:
+      summary: List RSVPs
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create RSVP
+      responses:
+        '201':
+          description: Created
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code: { type: string }
+            message: { type: string }
+            traceId: { type: string
