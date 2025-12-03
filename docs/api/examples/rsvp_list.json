@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": "abc123",
+      "name": "Asmaq",
+      "email": "asmaq@gmail.com",
+      "attending": true,
+      "createdAt": "2025-12-03T00:00:00Z"
+    }
+  ],
+  "nextCursor": "xyz789"
+}
