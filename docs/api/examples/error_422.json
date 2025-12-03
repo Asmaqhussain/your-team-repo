@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "validation_error",
+    "message": "email invalid",
+    "details": {
+      "field": "email"
+    },
+    "traceId": "trace-001"
+  }
+}
